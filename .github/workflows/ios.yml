@@ -45,8 +45,14 @@ jobs:
 
       - name: Run Tests (No Cache)
         if: steps.setup.outputs.cache-hit != 'true'
+        env:
+          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 20 # increase base timeout in seconds
+          FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 8 # increase number of retries
         run: bundle exec fastlane unit_test
       
       - name: Run Tests (Cache)
         if: steps.setup.outputs.cache-hit == 'true'
+        env:
+          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 20 # increase base timeout in seconds
+          FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 8 # increase number of retries
         run: bundle exec fastlane unit_test skip_package_dependencies_resolution:true
