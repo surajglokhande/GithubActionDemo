@@ -8,6 +8,8 @@ platform :ios do
         scan(
             clean: options[:clean],
             skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution],
+            scheme: "GithubActionDemo",
+            device: "iPhone 16 pro"
         )
     end
 end
