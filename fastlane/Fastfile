@@ -7,8 +7,8 @@ platform :ios do
   lane :unit_test do |options|
     scan(
       workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
-      device: "iPhone 14",
-      # destination: "platform=iOS Simulator,name=iPhone 14,OS=17.2"
+      # device: "iPhone 14",
+      destination: "platform=iOS Simulator,name=iPhone 14,OS=17.2",
       scheme: "GithubActionDemo",
       clean: options[:clean],
       skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
