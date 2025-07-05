@@ -3,5 +3,5 @@ scheme "GithubActionDemo"
 sdk 'iphonesimulator'
 code_coverage true
 xcargs '-parallelizeTargets'
-prelaunch_simulator true
+prelaunch_simulator false
 derived_data_path 'build/'
