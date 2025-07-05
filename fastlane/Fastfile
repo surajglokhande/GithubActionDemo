@@ -7,7 +7,7 @@ platform :ios do
         lane :unit_test do |options|
         scan(
              workspace: "project.xcworkspace",
-             evices: "iPhone 16 Pro",
+             devices: "iPhone 16 Pro",
              scheme: "GithubActionDemo",
              clean: options[:clean],
              skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
