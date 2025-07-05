@@ -7,10 +7,9 @@ platform :ios do
         lane :unit_test do |options|
         scan(
             scheme: "GithubActionDemo",
-            device: "iPhone 16 Pro",
+            device: "iPhone 15 Pro",
             clean: options[:clean],
             skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
-            
         )
     end
 end
