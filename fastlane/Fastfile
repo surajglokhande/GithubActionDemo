@@ -8,7 +8,7 @@ platform :ios do
     scan(
       workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
       # device: "iPhone 14",
-      destination: "platform=iOS Simulator,name=iPhone 14,OS=17.2",
+      destination: "platform=iOS Simulator,name=iPhone 15,OS=latest",
       scheme: "GithubActionDemo",
       clean: options[:clean],
       skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
