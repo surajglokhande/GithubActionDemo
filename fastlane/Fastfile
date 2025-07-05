@@ -5,11 +5,12 @@ platform :ios do
 # You can define global options for all lanes here
  desc 'Build project and executes unit tests'
         lane :unit_test do |options|
-        scan(
-            scheme: "GithubActionDemo",
-            device: "iPhone 15 Pro",
-            clean: options[:clean],
-            skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
-        )
-    end
+          run_tests(
+                    workspace: "project.xcworkspace",
+                    devices: "iPhone 16 Pro",
+                    scheme: "GithubActionDemo",
+                    clean: options[:clean],
+                    skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
+                   )
+        end
 end
