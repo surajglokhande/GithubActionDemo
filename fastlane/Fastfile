@@ -6,7 +6,7 @@ platform :ios do
   desc 'Build project and executes unit tests'
   lane :unit_test do |options|
     scan(
-      workspace: "project.xcworkspace",
+      workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
       device: "iPhone 16 Pro",
       scheme: "GithubActionDemo",
       clean: options[:clean],
