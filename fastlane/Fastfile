@@ -7,7 +7,7 @@ platform :ios do
   lane :unit_test do |options|
     scan(
       workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
-      device: "iPhone 14 Pro",
+      device: "iPhone 14",
       # destination: "platform=iOS Simulator,name=iPhone 14,OS=17.2"
       scheme: "GithubActionDemo",
       clean: options[:clean],
