@@ -3,10 +3,10 @@ default_platform :ios
 
 platform :ios do
   desc "Runs all tests on the project"
-  lane :test do
+  lane :unit_test do
     run_tests(
-      workspace: "YourProjectName.xcworkspace", # Use .xcworkspace if you have CocoaPods
-      scheme: "YourProjectScheme",
+      # workspace: "YourProjectName.xcworkspace", # Use .xcworkspace if you have CocoaPods
+      # scheme: "YourProjectScheme",
       # *** CHANGE THESE LINES ***
       # Remove 'id' or 'device_id' if you had them
       # Instead, specify a generic device and OS version
