@@ -8,7 +8,9 @@ platform :ios do
     scan(
       # workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
       # scheme: "GithubActionDemo",
-      # device: "iPhone 14",
+      device: "iPhone 15 Pro",
+      os: "17.0"
+      device_id: "AC26D00E-2101-459D-84AE-593C2C406358"
       # destination: "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0",
       # device: "iPhone 15",
       # clean: true
