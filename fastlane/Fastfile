@@ -3,7 +3,7 @@ default_platform :ios
 
 platform :ios do
   desc "Runs all tests on the project"
-  lane :unit_test do
+  lane :unit_test do |options|
     scan(
       workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
       scheme: "GithubActionDemo",
