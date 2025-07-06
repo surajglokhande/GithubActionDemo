@@ -5,11 +5,16 @@ platform :ios do
 # You can define global options for all lanes here
   desc 'Build project and executes unit tests'
   lane :unit_test do |options|
+scan(
+  scheme: "GithubActionDemo",
+  device: "iPhone 14",
+  os: "16.0"
+)
     scan(
       workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
-      # device: "iPhone 14",
-      # destination: "platform=iOS Simulator,name=iPhone 14,OS=16.0",
       scheme: "GithubActionDemo",
+      # device: "iPhone 14",
+      destination: "platform=iOS Simulator,name=iPhone 14,OS=16.0",
       clean: options[:clean],
       skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
     )
