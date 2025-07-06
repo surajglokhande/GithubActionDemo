@@ -36,6 +36,12 @@ jobs:
         with:
           xcode-version: latest-stable
 
+      - name: Boot Simulator
+        run: |
+          SIMULATOR_NAME="iPhone 15"
+          xcrun simctl bootstatus "$SIMULATOR_NAME" || xcrun simctl boot "$SIMULATOR_NAME"
+          xcrun simctl list | grep Booted
+
       - name: Install Bundler
         run: gem install bundler
 
