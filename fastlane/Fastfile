@@ -5,12 +5,11 @@ platform :ios do
   desc "Runs all tests on the project"
   lane :unit_test do |options|
     scan(
-      workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
-      scheme: "GithubActionDemo",
-      device: "iPhone 15 Pro",  # Or "iPhone SE (3rd generation)", "iPhone 14", etc.
-      clean: true,
-      output_directory: "fastlane/test_output",
-      output_types: "junit,html"
+      # workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
+      # scheme: "GithubActionDemo",
+      # device: "iPhone 15 Pro",  # Or "iPhone SE (3rd generation)", "iPhone 14", etc.
+      clean: options[:clean],
+      skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution],
     )
   end
 end
