@@ -8,7 +8,6 @@ platform :ios do
       workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
       scheme: "GithubActionDemo",
       device: "iPhone 15 Pro",  # Or "iPhone SE (3rd generation)", "iPhone 14", etc.
-      os_version: "17.4",       # Match a common iOS version available on macos-latest
       clean: true,
       output_directory: "fastlane/test_output",
       output_types: "junit,html"
