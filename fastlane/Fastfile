@@ -2,20 +2,20 @@ fastlane_version '2.228.0'
 default_platform :ios
 
 platform :ios do
-# You can define global options for all lanes here
-  desc 'Build project and executes unit tests'
-  lane :unit_test do |options|
-    scan(
-      # workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
-      # scheme: "GithubActionDemo",
-      device: "iPhone 15 Pro",
-      os: "17.0",
-      device_id: "AC26D00E-2101-459D-84AE-593C2C406358",
-      # destination: "platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0",
-      # device: "iPhone 15",
-      # clean: true,
-      clean: options[:clean],
-      skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution]
+  desc "Runs all tests on the project"
+  lane :test do
+    run_tests(
+      workspace: "YourProjectName.xcworkspace", # Use .xcworkspace if you have CocoaPods
+      scheme: "YourProjectScheme",
+      # *** CHANGE THESE LINES ***
+      # Remove 'id' or 'device_id' if you had them
+      # Instead, specify a generic device and OS version
+      device: "iPhone 15 Pro",  # Or "iPhone SE (3rd generation)", "iPhone 14", etc.
+      os_version: "17.4",       # Match a common iOS version available on macos-latest
+      # *************************
+      clean: true,
+      output_directory: "fastlane/test_output",
+      output_types: "junit,html"
     )
   end
 end
