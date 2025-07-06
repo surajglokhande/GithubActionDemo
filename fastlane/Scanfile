@@ -1,6 +1,8 @@
 workspace 'GithubActionDemo.xcodeproj/project.xcworkspace'
 scheme 'GithubActionDemo'
 sdk 'iphonesimulator'
+device 'iPhone 15 Pro'
+OS '17.0'
 code_coverage true
 xcargs '-parallelizeTargets'
 prelaunch_simulator true
