@@ -26,6 +26,18 @@ jobs:
       - name: List available simulators
         run: xcrun simctl list devices
 
+      # Add after 'List available simulators'
+      - name: Boot iPhone 14 Simulator (iOS 16.0)
+        run: |
+          SIMULATOR_NAME="iPhone 14"
+          OS_VERSION="16.0"
+          DEVICE_ID=$(xcrun simctl list devices available | grep "$SIMULATOR_NAME ($OS_VERSION" | head -n 1 | awk -F '[()]' '{print $2}')
+          if [ -z "$DEVICE_ID" ]; then
+            echo "Simulator not found!"; exit 1
+          fi
+          xcrun simctl boot "$DEVICE_ID" || true
+          xcrun simctl list | grep Booted
+
       # - name: Run Tests on iPhone 14 Simulator (iOS 16.0)
       #   run: |
       #     xcodebuild test \
