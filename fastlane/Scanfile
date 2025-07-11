@@ -1,5 +1,5 @@
-workspace "GithubActionDemo.xcodeproj/project.xcworkspace"
-scheme "GithubActionDemo"
+workspace 'GithubActionDemo.xcodeproj/project.xcworkspace'
+scheme 'GithubActionDemo'
 sdk 'iphonesimulator'
 code_coverage true
 xcargs '-parallelizeTargets'
