@@ -7,8 +7,8 @@ platform :ios do
     scan(
       # workspace: "GithubActionDemo.xcodeproj/project.xcworkspace",
       scheme: "GithubActionDemo",
-      device: "iPhone 15 Pro",
-      os: "17.0",
+      device: "iPhone 16 Pro",
+      os: "18.2",
       # device: "iPhone 15 Pro",  # Or "iPhone SE (3rd generation)", "iPhone 14", etc.
       clean: options[:clean],
       skip_package_dependencies_resolution: options[:skip_package_dependencies_resolution],
