@@ -1,4 +1,4 @@
-workspace 'GithubActionDemo.xcodeproj/project.xcworkspace'
+project 'GithubActionDemo.xcodeproj/project.xcworkspace'
 scheme 'GithubActionDemo'
 sdk 'iphonesimulator'
 code_coverage true
