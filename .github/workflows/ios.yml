@@ -39,8 +39,8 @@ jobs:
       # Add after 'List available simulators'
       - name: Boot iPhone 14 Simulator (iOS 16.0)
         run: |
-          SIMULATOR_NAME="iPhone 14"
-          OS_VERSION="16.0"
+          SIMULATOR_NAME="iPhone 15 Pro"
+          OS_VERSION="17.0"
           DEVICE_ID=$(xcrun simctl list devices available | grep "$SIMULATOR_NAME ($OS_VERSION" | head -n 1 | awk -F '[()]' '{print $2}')
           if [ -z "$DEVICE_ID" ]; then
             echo "Simulator not found!"; exit 1
