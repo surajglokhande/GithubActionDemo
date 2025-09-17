@@ -29,10 +29,10 @@ jobs:
 
       - name: Build and Test #Run Tests on iPhone 14 Simulator (iOS 16.0)
         run: |
-          xcodebuild clean test \
+          xcodebuild test \
             -project GithubActionDemo.xcodeproj
             -scheme 'GithubActionDemo' \
-            -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0'
+            -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.4'
 
       # - uses: maxim-lobanov/setup-xcode@v1
       #   with:
