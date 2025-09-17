@@ -1,40 +1,42 @@
 name: iOS test workflow
 
 on:
-  # push:
-  #   branches: [ "main" ]
-  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  # workflow_dispatch:
 
 jobs:
-  test:
+  build_and_test:
+    name: Build and Test
     runs-on: macos-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Ruby and Bundler
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3.4' # Specify the Ruby version here
-          bundler-cache: true
+      # - name: Set up Ruby and Bundler
+      #   uses: ruby/setup-ruby@v1
+      #   with:
+      #     ruby-version: '3.3.4' # Specify the Ruby version here
+      #     bundler-cache: true
 
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.9.1
-        with:
-          access_token: ${{ github.token }}
+      # - name: Cancel Previous Runs
+      #   uses: styfle/cancel-workflow-action@0.9.1
+      #   with:
+      #     access_token: ${{ github.token }}
 
       - name: List available simulators
         run: xcrun simctl list devices
 
-      # - name: Run Tests on iPhone 14 Simulator (iOS 16.0)
-      #   run: |
-      #     xcodebuild test \
-      #       -scheme 'GithubActionDemo' \
-      #       -destination 'platform=iOS Simulator,name=iPhone 14,OS=16.0'
+      - name: Build and Test #Run Tests on iPhone 14 Simulator (iOS 16.0)
+        run: |
+          xcodebuild clean test \
+            -project GithubActionDemo.xcodeproj
+            -scheme 'GithubActionDemo' \
+            -destination 'platform=iOS Simulator,name=iPhone 14,OS=18.0'
 
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: latest-stable
+      # - uses: maxim-lobanov/setup-xcode@v1
+      #   with:
+      #     xcode-version: latest-stable
 
       # # Add after 'List available simulators'
       # - name: Boot iPhone 16 Pro Simulator (iOS 18.2)
@@ -48,32 +50,32 @@ jobs:
       #     xcrun simctl boot "$DEVICE_ID" || true
       #     xcrun simctl list | grep Booted
 
-      - name: Install Bundler
-        run: gem install bundler
+      # - name: Install Bundler
+      #   run: gem install bundler
 
-      - name: Install gems
-        run: bundle install
+      # - name: Install gems
+      #   run: bundle install
 
-      - name: Swift Packages Cache
-        uses: actions/cache@v4
-        id: cache
-        with:
-          path: |
-            Build/SourcePackages
-            Build/Build/Products
-          key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
-          restore-keys: ${{ runner.os }}-deps-v1-
+      # - name: Swift Packages Cache
+      #   uses: actions/cache@v4
+      #   id: cache
+      #   with:
+      #     path: |
+      #       Build/SourcePackages
+      #       Build/Build/Products
+      #     key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
+      #     restore-keys: ${{ runner.os }}-deps-v1-
 
-      - name: Run Tests (No Cache)
-        if: steps.setup.outputs.cache-hit != 'true'
-        env:
-          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 20 # increase base timeout in seconds
-          FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 8 # increase number of retries
-        run: bundle exec fastlane unit_test
+      # - name: Run Tests (No Cache)
+      #   if: steps.setup.outputs.cache-hit != 'true'
+      #   env:
+      #     FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 20 # increase base timeout in seconds
+      #     FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 8 # increase number of retries
+      #   run: bundle exec fastlane unit_test
       
-      - name: Run Tests (Cache)
-        if: steps.setup.outputs.cache-hit == 'true'
-        env:
-          FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 20 # increase base timeout in seconds
-          FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 8 # increase number of retries
-        run: bundle exec fastlane unit_test skip_package_dependencies_resolution:true
+      # - name: Run Tests (Cache)
+      #   if: steps.setup.outputs.cache-hit == 'true'
+      #   env:
+      #     FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 20 # increase base timeout in seconds
+      #     FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 8 # increase number of retries
+      #   run: bundle exec fastlane unit_test skip_package_dependencies_resolution:true
