@@ -27,3 +27,4 @@ jobs:
             -project GithubActionDemo.xcodeproj \
             -scheme "GithubActionDemo" \
             -destination 'platform=iOS Simulator,name=iPhone 16'
+
