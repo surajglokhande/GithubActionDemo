@@ -1,7 +1,7 @@
-project 'GithubActionDemo.xcodeproj/project.xcworkspace'
-scheme 'GithubActionDemo'
-sdk 'iphonesimulator'
-code_coverage true
-xcargs '-parallelizeTargets'
-prelaunch_simulator true
-derived_data_path 'build/'
+# project 'GithubActionDemo.xcodeproj/project.xcworkspace'
+# scheme 'GithubActionDemo'
+# sdk 'iphonesimulator'
+# code_coverage true
+# xcargs '-parallelizeTargets'
+# prelaunch_simulator true
+# derived_data_path 'build/'
