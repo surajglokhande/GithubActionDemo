@@ -17,8 +17,14 @@ default_platform(:ios)
 
 platform :ios do
   desc "it's a sample test case"
-  lane :unit_test do
+  lane :unit_test_lane do
     # add actions here: https://docs.fastlane.tools/actions
     run_tests(scheme: "GithubActionDemoTests")
+  end
+
+  desc "it's a only for build"
+  lane :build_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+    build_ios_app()
   end
 end
